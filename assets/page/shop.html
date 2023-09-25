@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Shop</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      body {
+        background-color: #3e636d;
+        font-family: system-ui;
+        width: 100%;
+      }
+      .container2 {
+        width: 1000px;
+        margin: auto;
+        transition: 0.5s;
+        margin-top: 8rem;
+      }
+      .header {
+        display: grid;
+        grid-template-columns: 1fr 50px;
+        margin-top: 50px;
+      }
+      .header .shopping {
+        position: relative;
+        text-align: right;
+      }
+      .header .shopping img {
+        width: 40px;
+      }
+      .header .shopping span {
+        background: red;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        position: absolute;
+        top: -5px;
+        left: 80%;
+        padding: 3px 10px;
+      }
+      .list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        row-gap: 20px;
+        margin-top: 50px;
+      }
+      .list .item {
+        text-align: center;
+        background-color: #d9e0e2d0;
+        padding: 20px;
+        box-shadow: 0 50px 50px #757676;
+        letter-spacing: 1px;
+        border-radius: 8px;
+      }
+      .list .item img {
+        width: 80%;
+        height: 430px;
+        object-fit: cover;
+      }
+      .list .item .title {
+        font-weight: 600;
+      }
+      .list .item .price {
+        margin: 10px;
+      }
+      .list .item button {
+        background-color: #1298659e;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        font-weight: 600;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .item button:hover {
+        background-color: #329854;
+      }
+      .card {
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 500px;
+        background-color: #046067;
+        height: 100vh;
+        transition: 0.5s;
+        z-index: 100;
+        overflow-y: scroll;
+      }
+      .active .card {
+        left: calc(100% - 500px);
+      }
+      .active .container {
+        transform: translateX(-200px);
+      }
+      .card h1 {
+        color: #e8bc0e;
+        font-weight: 100;
+        margin: 0;
+        padding: 0 20px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+      }
+      .card .checkOut {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .card .checkOut div {
+        background-color: #12ad58;
+        width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .card .checkOut div:nth-child(2) {
+        background-color: #1c1f25;
+        color: #fff;
+      }
+      .listCard li {
+        display: grid;
+        grid-template-columns: 100px repeat(3, 1fr);
+        color: #fff;
+        row-gap: 10px;
+      }
+      .listCard li div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .listCard li img {
+        width: 90%;
+      }
+      .listCard li button {
+        background-color: #fff5;
+        border: none;
+      }
+      .listCard .count {
+        margin: 0 10px;
+      }
+      .pointer {
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+      }
+      @media screen and (max-width: 1024px){
+        .list{
+          grid-template-columns: repeat(2,1fr);
+        }
+        .list .item img {
+          width: 50%;
+        }
+      }
+      @media screen and (max-width: 987px){
+        .list{
+          grid-template-columns: repeat(1,1fr);
+        }
+        .list .item{
+          width: 50%;
+          margin: auto;
+        }
+      }
+    </style>
+  </head>
+  <body class="">
+    <header style="background-color: #fcfcfcf0">
+      <a href="../../index.html" class="logo"
+        ><img src="../img/images/logo.png" alt=""
+      /></a>
+      <i class="fa-solid fa-bars" id="menu-icon"></i>
+      <ul id="navbar">
+        <li class="navbar">
+          <a href="../../index.html" class="items">Home</a>
+          <a href="../page/shop.html" class="items">Shop</a>
+          <a href="../page/deli.html" class="items">Delivery</a>
+          <a href="app.html" class="items">App</a>
+          <a href="about.html" class="items">About</a>
+          <a href="contact.html" class="items">contact</a>
+        </li>
+      </ul>
+    </header>
+
+    <div class="container2">
+      <div class="header">
+        <h1 style="color: #fff; text-transform: uppercase">
+          Enjoy your shopping
+        </h1>
+        <div class="shopping">
+          <img
+            src="../img/images/drink2-removebg-preview.png"
+            style="cursor: pointer"
+          />
+          <span class="quantity">0</span>
+        </div>
+      </div>
+
+      <div class="list">
+        
+      </div>
+    </div>
+    <div class="card">
+      <h1>Card</h1>
+      <ul class="listCard"></ul>
+      <div class="checkOut">
+        <div class="total">0</div>
+        <div class="closeShopping" onclick="alert(`Thank for buying our product,good luck`)">Buy Now</div>
+      </div>
+    </div>
+    <section class="contact" id="contact">
+      <div class="social-media" >
+        <a href=""><i class="fa-brands fa-facebook icon" style="color: #fff;"></i></a>
+        <a href=""><i class="fa-brands fa-twitter icon" style="color: #fff;"></i></a>
+        <a href=""><i class="fa-brands fa-instagram icon" style="color: #fff;"></i></a>
+        <a href=""><i class="fa-brands fa-youtube icon" style="color: #fff;"></i></a>
+      </div>
+      <div class="privacy">
+        <a href="" style="color: #ffffff75;">Privacy Policy</a>
+        <a href="" style="color: #ffffff75;">Terms Of Use</a>
+        <a href="" style="color: #ffffff75;">Our Company</a>
+        <p style="color: #ffffff75;">&#169; PanhaDev</p>
+      </div>
+    </section>
+    <script>
+      let openShopping = document.querySelector(".shopping");
+      let closeShopping = document.querySelector(".closeShopping");
+      let list = document.querySelector(".list");
+      let listCard = document.querySelector(".listCard");
+      let body = document.querySelector("body");
+      let total = document.querySelector(".total");
+      let quantity = document.querySelector(".quantity");
+
+      openShopping.addEventListener("click", () => {
+        body.classList.add("active");
+      });
+      closeShopping.addEventListener("click", () => {
+        body.classList.remove("active");
+      });
+
+      let products = [
+        {
+          id: 1,
+          name: "SPINDRIFT",
+          image: "img/images/drink1-removebg-preview.png",
+          price: 1.99,
+        },
+        {
+          id: 2,
+          name: "GINGER LEMON",
+          image: "img/images/drink2-removebg-preview.png",
+          price: 1.58,
+        },
+        {
+          id: 3,
+          name: "PASSION FRUIT",
+          image: "img/images/drink3-removebg-preview.png",
+          price: 2.59,
+        },
+        {
+          id: 4,
+          name: "CALAMANSI",
+          image: "img/images/drink4-removebg-preview.png",
+          price: 2.99,
+        },
+        {
+          id: 5,
+          name: "VINA",
+          image: "img/images/drink5-removebg-preview.png",
+          price: 1.45,
+        },
+        {
+          id: 6,
+          name: "SAPPORO",
+          image: "img/images/drink6-removebg-preview.png",
+          price: 2.55,
+        },
+      ];
+      let listCards = [];
+      function initApp() {
+        products.forEach((value, key) => {
+          let newDiv = document.createElement("div");
+          newDiv.classList.add("item");
+          newDiv.innerHTML = `
+            <img src="../${value.image}">
+            <div class="title">${value.name}</div>
+            <div class="price">${value.price.toLocaleString()}$</div>
+            <button onclick="addToCard(${key})">Add To Card</button>`;
+          list.appendChild(newDiv);
+        });
+      }
+      initApp();
+      function addToCard(key) {
+        if (listCards[key] == null) {
+          // copy product form list to list card
+          listCards[key] = JSON.parse(JSON.stringify(products[key]));
+          listCards[key].quantity = 1;
+        }
+        reloadCard();
+      }
+      function reloadCard() {
+        listCard.innerHTML = "";
+        let count = 0;
+        let totalPrice = 0;
+        listCards.forEach((value, key) => {
+          totalPrice = totalPrice + value.price;
+          count = count + value.quantity;
+          if (value != null) {
+            let newDiv = document.createElement("li");
+            newDiv.innerHTML = `
+                <div><img  src="../${value.image}"/></div>
+                <div>${value.name}</div>
+                <div>${value.price.toLocaleString()}$</div>
+                <div>
+                    <button class = 'pointer' onclick="changeQuantity(${key}, ${
+              value.quantity - 1
+            })">-</button>
+                    <div class="count">${value.quantity}</div>
+                    <button class = 'pointer' onclick="changeQuantity(${key}, ${
+              value.quantity + 1
+            })">+</button>
+                </div>`;
+            listCard.appendChild(newDiv);
+          }
+        });
+        total.innerText = `${totalPrice.toLocaleString()}$`;
+        quantity.innerText = count;
+      }
+      function changeQuantity(key, quantity) {
+        if (quantity == 0) {
+          delete listCards[key];
+        } else {
+          listCards[key].quantity = quantity;
+          listCards[key].price = quantity * products[key].price;
+        }
+        reloadCard();
+      }
+    </script>
+  </body>
+</html>
